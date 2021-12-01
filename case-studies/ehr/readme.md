@@ -28,4 +28,4 @@
 
 
 ## Suggested Architecture
-![Suggested System Architecture](https://lucid.app/publicSegments/view/d3771e46-0018-4616-bc76-06beb928b783/image.png)
+![Suggested System Architecture](https://lucid.app/publicSegments/view/e109a2f8-abf2-4a18-9400-46276aaa639b/image.png)
