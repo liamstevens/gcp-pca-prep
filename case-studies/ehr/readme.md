@@ -25,3 +25,7 @@
 - Managed Redis cache
 - Google Cloud Datastore/GCE/Managed MondoDB Atlas for NoSQLL
 - Cloud Interconnect between on-prem and VPC
+
+
+## Suggested Architecture
+![Suggested System Architecture](https://lucid.app/publicSegments/view/aee5f48c-4593-444e-a27b-4d6f1f85c584/image.png)
