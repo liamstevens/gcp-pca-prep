@@ -5,7 +5,7 @@ VPC in GCP is much like in AWS - it forms the basis for most of the networking w
 ## VPC Peering
 VPC Peering is the act of connecting one VPC to another. If you are familiar with AWS VPC, VPC Peering works pretty much the same way here. Peering in GCP, much like in AWS, is non-transitive. This means that if you have a hub-and-spoke network architecture, your spokes cannot communicate with each other. In order to facilitate this, you will need to make use of Cloud Router (covered later).
 ## Firewall and Network Tags
-
+Firewall and network tags can be thought of as the equivalent of AWS's Security Group concept. Instances and networked resources can be tagged and have rules applied to them based on their membership of these Network Tags.
 ## Shared VPC
 
 ## Cloud Router
