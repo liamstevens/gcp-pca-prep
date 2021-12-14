@@ -7,7 +7,7 @@ VPC Peering is the act of connecting one VPC to another. If you are familiar wit
 ## Firewall and Network Tags
 Firewall and network tags can be thought of as the equivalent of AWS's Security Group concept. Instances and networked resources can be tagged and have rules applied to them based on their membership of these Network Tags.
 ## Shared VPC
-
+A somewhat unique feature of GCP networking is the ability to create compute resources that belong to one project within a network owned by another project. This allows for a single project to form the basis for networking across an entire solution, and removes potentially frustrating issues that may be encountered were you to approach this via VPC Peering, for instance.
 ## Cloud Router
 
 ## Private Google Access
