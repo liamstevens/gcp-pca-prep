@@ -4,3 +4,5 @@ GCE is used broadly for a number of purposes, but perhaps the best way to summar
 ## Why use it?
 GCE is pretty handy if you've got a traditional workload that you need to lift and shift into the cloud. Monolithic applications (I'm looking at you, SAP) that aren't easily reworked to make use of containerisation, or into a serverless architecture. It's also by far the simplest way of setting up basic functionality if you need something quick and dirty and you'd rather do an `yum install postgres` than try to set up a full Cloud SQL instance.
 ## Related/Requisite Services
+### VPC
+First and moremost related is networking. VPC covers a large number of these components, but this includes things like the underlying network and subnet that the instance sits in, firewall rules (and network tagging), routing, DNS, and so on. VPC is heavily intertwined with many services (server or serverless) in GCP, so this relationship with GCE is not unique by any means.
