@@ -3,3 +3,4 @@
 GCE is used broadly for a number of purposes, but perhaps the best way to summarise it is "VM as a service". You are in charge of a lot here as this is true IaaS. Machine image, resources available to the VM, network connectivity, patching of the OS and any installed software, etc. etc. etc. All your responsibility. All Google does is provision the infrastructure to be available for you according to your instruction.
 ## Why use it?
 GCE is pretty handy if you've got a traditional workload that you need to lift and shift into the cloud. Monolithic applications (I'm looking at you, SAP) that aren't easily reworked to make use of containerisation, or into a serverless architecture. It's also by far the simplest way of setting up basic functionality if you need something quick and dirty and you'd rather do an `yum install postgres` than try to set up a full Cloud SQL instance.
+## Related/Requisite Services
