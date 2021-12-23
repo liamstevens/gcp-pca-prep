@@ -13,10 +13,12 @@ A somewhat unique feature of GCP networking is the ability to create compute res
 ## Private Google Access/Private Service Connect/Private Services Access
 These three options within VPC configuration are all similar enough to cause confusion, in both name and purpose, as well as being commonly used. 
 ### Private Google Access
-Private Google Access is comparably to VPC endpoints in AWS at a high level, but differs somewhat due to their ability to be transitive across perimeter boundaries (?)
+Private Google Access 
 
 ### Private Service Connect
+Private Service Connect is comparable to VPC endpoints in AWS at a high level, but differs somewhat due to their ability to be transitive across perimeter boundaries - you can use this to expose services within a VPC, connect across VPCs, as well as use it to access and consume Google Cloud API services. Additionally, VPC Service Controls can be applied to all of these, as can network firewall rules.
 
+A great example of PSC is to enforce regionality - resources in one Google region will consume APIs via an endpoint that is located in the same region as them.
 ### Private Services Access
 
 ## VPC Security Controls (VPC SC)
