@@ -9,4 +9,4 @@ First and moremost related is networking. VPC covers a large number of these com
 ### Managed Instance Groups (MIGs)
 Managed instance groups are technically a subset of GCE, rather than a related service. but they really do deserve to have a section dedicated to them. MIGs are a way of creating and dealing with a fleet of virtual machines as a single entity rather than individually. MIGs are configurable with autoscaling, autohealing, and auto-updating. They also natively support integrations with Google's Cloud Load Balancing service, in order to allow access to the application that you're running on them. 
 
-MIGs can be run according to a number of different scaling strategies in order to your needs.
+MIGs can be run according to a number of different scaling strategies in order to your needs. This includes round robin allocation across zones within a region, to improve redundancy and resilience.

@@ -11,5 +11,6 @@ A somewhat unique feature of GCP networking is the ability to create compute res
 ## Cloud Router
 
 ## Private Google Access
+Private Google Access is comparably to VPC endpoints in AWS at a high level, but differs somewhat due to their ability to be transitive across perimeter boundaries (?)
 
 ## VPC Security Controls (VPC SC)
