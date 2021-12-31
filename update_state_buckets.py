@@ -6,7 +6,7 @@ def get_terraform_paths(parent):
     for path in Path(parent).rglob('terraform'):
         print(str(path))
         for e in path.iterdir():
-            if os.path.isdir(e):
+            if 'tf_state_buckets' not in str(e) and os.path.isdir(e): #ignore the bucket used for managing the state of buckets, else we risk destroying state!
                 #get the name of the directory by returning the path object and partitioning from the right.
                 #rpartition returns prefix, delimiter and postfix in a list, so we take the last element as it's the only one we care about.
                 tf_workspaces.append(str(e).rpartition('/')[-1]) 
