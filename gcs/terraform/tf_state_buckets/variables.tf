@@ -1,9 +1,4 @@
-variable "backend_bucket" {
-  description = "Bucket for storage of local state."
-  type = string
-}
-
-variable "tf_buckets" {
+ variable "tf_buckets" {
     description = "Names of all TF state buckets to be created."
     type = list(string)
 }
