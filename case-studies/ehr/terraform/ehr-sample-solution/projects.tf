@@ -1,5 +1,8 @@
 resource "google_project" "billing_account" {
-  
+  name = "EHR Billing Project"
+  project_id = "ehr-billing-account-gcp-pca-prep"
+  org_id     = var.organisation_id
+  auto_create_network = false
 }
 
 resource "google_folder" "department1" {
@@ -8,25 +11,33 @@ resource "google_folder" "department1" {
 }
 
 resource "google_project" "compute_project" {
-  name       = "Compute Project"
-  project_id = "ehr-compute-project"
+  name       = "EHR Compute Project"
+  project_id = "ehr-compute-project-gcp-pca-prep"
   org_id     = var.organisation_id
   billing_id = google_project.billing_account.id
   auto_create_network = false
 }
 
 resource "google_project" "network_project" {
-  name       = "Network Project"
-  project_id = "ehr-network-project"
+  name       = "EHR Network Project"
+  project_id = "ehr-network-project-gcp-pca-prep"
   org_id     = var.organisation_id
   billing_id = google_project.billing_account.id
   auto_create_network = false
 }
 
 resource "google_project" "analytics_project" {
-  
+  name = "EHR Analytics Project"
+  project_id = "ehr-analytics-project-gcp-pca-prep"
+  billing_id = google_project.billing_account.id
+  org_id     = var.organisation_id
+  auto_create_network = false
 }
 
 resource "google_project" "database_project" {
-  
+  name = "EHR Database Project"
+  project_id = "ehr-database-project-gcp-pca-prep"
+  billing_id = google_project.billing_account.id
+  org_id     = var.organisation_id
+  auto_create_network = false
 }
