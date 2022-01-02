@@ -17,6 +17,8 @@ crash.log
 # to change depending on the environment.
 #
 *.tfvars
+#Ignore backup files
+*.backup
 
 #Filesystem artefacts
 **.DS_Store
