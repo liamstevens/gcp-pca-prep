@@ -1,11 +1,11 @@
 variable "organisation_id" {
-    description = "The ID of the parent organisation for folders and projects."
-    type = string
+  description = "The ID of the parent organisation for folders and projects."
+  type        = string
 }
 
 variable "billing_id" {
-    description = "The ID of the billing account to attach to child projects."
-    type = string
+  description = "The ID of the billing account to attach to child projects."
+  type        = string
 }
 
 ###GKE Vars
@@ -144,5 +144,5 @@ variable "provider_location" {
 
 variable "release_channel" {
   description = "Release channel to use for GKE version upgrades. Use REGULAR for non production and STABLE for production clusters."
-  default = "STABLE"
+  default     = "STABLE"
 }

@@ -1,16 +1,16 @@
-resource "google_container_cluster" "shared_vpc_cluster_blue" {
+resource "google_container_cluster" "shared_vpc_cluster" {
   name                      = var.gke_cluster_name
   location                  = var.cluster_location
   provider                  = google-beta.compute
   network                   = google_compute_network.shared_network.id
-  subnetwork                = google_compute_subnetwork.shared_subnetwork_blue.id
+  subnetwork                = google_compute_subnetwork.shared_subnetwork.id
   enable_shielded_nodes     = var.shielded_config
   remove_default_node_pool  = true
   initial_node_count        = var.initial_node_count
   default_max_pods_per_node = var.maximum_pods_per_node
 
   node_config {
-    service_account = "${var.gke_sa_id}@${var.google_project_id}.iam.gserviceaccount.com"
+    service_account = "${var.gke_sa_id}@${google_project.compute_project}.iam.gserviceaccount.com"
   }
 
   lifecycle {
@@ -59,8 +59,8 @@ resource "google_container_cluster" "shared_vpc_cluster_blue" {
   # }
 
   ip_allocation_policy {
-    cluster_secondary_range_name  = var.shared_vpc_subnetwork_cluster_secondary_range_name_blue
-    services_secondary_range_name = var.shared_vpc_subnetwork_services_secondary_range_name_blue
+    cluster_secondary_range_name  = var.shared_vpc_subnetwork_cluster_secondary_range_name
+    services_secondary_range_name = var.shared_vpc_subnetwork_services_secondary_range_name
   }
 
   vertical_pod_autoscaling {
@@ -71,11 +71,11 @@ resource "google_container_cluster" "shared_vpc_cluster_blue" {
   }
 }
 
-resource "google_container_node_pool" "default_node_pool_blue" {
-  name               = var.node_pool_name_blue
+resource "google_container_node_pool" "default_node_pool" {
+  name               = var.node_pool_name
   location           = var.cluster_location
   provider           = google
-  cluster            = google_container_cluster.shared_vpc_cluster_blue.name
+  cluster            = google_container_cluster.shared_vpc_cluster.name
   initial_node_count = var.initial_node_count
   autoscaling {
     min_node_count = var.min_node_count
@@ -89,7 +89,7 @@ resource "google_container_node_pool" "default_node_pool_blue" {
     }*/
     machine_type    = "${var.node_type}-${var.node_size}"
     image_type      = var.node_image
-    service_account = "${var.gke_sa_id}@${var.google_project_id}.iam.gserviceaccount.com"
+    service_account = "${var.gke_sa_id}@${google_project.compute_project}.iam.gserviceaccount.com"
     oauth_scopes = [
       "https://www.googleapis.com/auth/compute",
       "https://www.googleapis.com/auth/devstorage.read_only",
@@ -112,7 +112,7 @@ resource "google_container_node_pool" "default_node_pool_blue" {
     create = "40m"
     update = "30m"
   }
-  depends_on = [
-    google_project_iam_member.default
-  ]
+  #depends_on = [
+  #  google_project_iam_member.default
+  #]
 }
