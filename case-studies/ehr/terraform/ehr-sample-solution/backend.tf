@@ -1,3 +1,10 @@
+terraform {
+  backend "gcs" {
+    bucket  = "ehr-sample-solution-gcp-pca-prep"
+    prefix  = "terraform/state"
+  }
+}
+
 provider "google" {
   alias   = "network"
   project = google_project.network_project.id
