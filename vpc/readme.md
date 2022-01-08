@@ -24,3 +24,4 @@ Private Services Access allows you to allocate an unused CIDR block for Google S
 
 Because these are two separate VPCs, it is important to understand that the only routes shared between them by default are at the subnet level - if you have on-premise or other networks that you want to route to these private services from, you need to have routes to these present in your original VPC as well as export them to the service VPC
 ## VPC Security Controls (VPC SC)
+VPC SC allows you to create security perimeters around resources within and between projects.
