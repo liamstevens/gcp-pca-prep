@@ -1,7 +1,7 @@
 terraform {
   backend "gcs" {
-    bucket  = "ehr-sample-solution-gcp-pca-prep"
-    prefix  = "terraform/state"
+    bucket = "ehr-sample-solution-gcp-pca-prep"
+    prefix = "terraform/state"
   }
 }
 
