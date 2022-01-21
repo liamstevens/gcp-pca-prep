@@ -28,3 +28,42 @@ provider "google-beta" {
   project = google_project.compute_project.id
   region  = var.cluster_location
 }
+
+provider "google" {
+  alias   = "analytics"
+  project = google_project.analytics_project.id
+  region  = var.cluster_location
+}
+
+
+provider "google-beta" {
+  alias   = "analytics"
+  project = google_project.analytics_project.id
+  region  = var.cluster_location
+}
+
+provider "google" {
+  alias   = "database"
+  project = google_project.database_project.id
+  region  = var.cluster_location
+}
+
+
+provider "google-beta" {
+  alias   = "database"
+  project = google_project.database_project.id
+  region  = var.cluster_location
+}
+
+provider "google" {
+  alias   = "identity"
+  project = google_project.identity_project.id
+  region  = var.cluster_location
+}
+
+
+provider "google-beta" {
+  alias   = "identity"
+  project = google_project.identity_project.id
+  region  = var.cluster_location
+}

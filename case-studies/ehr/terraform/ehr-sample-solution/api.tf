@@ -1,3 +1,4 @@
+##### GKE Service Project #####
 resource "google_project_service" "gke_compute" {
   project = google_project.compute_project.id
   service = "compute.googleapis.com"
@@ -56,6 +57,39 @@ resource "google_project_service" "gke_gcs" {
 resource "google_project_service" "gke_service_networking" {
   project = google_project.compute_project.id
   service = "servicenetworking.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "gke_containers" {
+  project = google_project.compute_project.id
+  service = "container.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "gke_container_scanning" {
+  project = google_project.compute_project.id
+  service = "containerscanning.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "gke_container_analysis" {
+  project = google_project.compute_project.id
+  service = "containeranalysis.googleapis.com"
   timeouts {
     create = "30m"
     update = "40m"
@@ -143,3 +177,38 @@ resource "google_project_service" "identity_cloud_identity" {
 
   disable_dependent_services = true
 }
+
+##### VPC Host Project #####
+resource "google_project_service" "vpc_service_networking" {
+  project = google_project.network_project.id
+  service = "servicenetworking.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "vpc_network_management" {
+  project = google_project.network_project.id
+  service = "networkmanagement.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "vpc_dns" {
+  project = google_project.network_project.id
+  service = "dns.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
