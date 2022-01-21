@@ -41,3 +41,11 @@ resource "google_project" "database_project" {
   org_id              = var.organisation_id
   auto_create_network = false
 }
+
+resource "google_project" "identity_project" {
+  name                = "EHR Identity Project"
+  project_id          = "ehr-identity-project-gcp-pca-prep"
+  billing_account     = google_project.billing_account.id
+  org_id              = var.organisation_id
+  auto_create_network = false
+}

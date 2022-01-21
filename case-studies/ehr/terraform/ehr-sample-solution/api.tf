@@ -53,6 +53,17 @@ resource "google_project_service" "gke_gcs" {
   disable_dependent_services = true
 }
 
+resource "google_project_service" "gke_service_networking" {
+  project = google_project.compute_project.id
+  service = "servicenetworking.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
 #### Analytics Project ####
 resource "google_project_service" "analytics_gcs" {
   project = google_project.analytics_project.id
@@ -79,6 +90,52 @@ resource "google_project_service" "analytics_bigquery" {
 resource "google_project_service" "analytics_logging" {
   project = google_project.analytics_project.id
   service = "logging.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+##### Identity Sync Project #####
+
+resource "google_project_service" "identity_compute" {
+  project = google_project.identity_project.id
+  service = "compute.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "identity_iam" {
+  project = google_project.identity_project.id
+  service = "iam.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "identity_service_networking" {
+  project = google_project.identity_project.id
+  service = "servicenetworking.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "identity_cloud_identity" {
+  project = google_project.identity_project.id
+  service = "cloudidentity.googleapis.com"
   timeouts {
     create = "30m"
     update = "40m"
