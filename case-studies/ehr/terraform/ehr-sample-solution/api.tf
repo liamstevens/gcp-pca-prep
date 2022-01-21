@@ -31,6 +31,17 @@ resource "google_project_service" "gke_monitoring" {
   disable_dependent_services = true
 }
 
+resource "google_project_service" "gke_logging" {
+  project = google_project.compute_project.id
+  service = "logging.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
 resource "google_project_service" "gke_gcs" {
   project = google_project.compute_project.id
   service = "storage-component.googleapis.com"
@@ -43,9 +54,31 @@ resource "google_project_service" "gke_gcs" {
 }
 
 #### Analytics Project ####
-resource "google_project_service" "gke_gcs" {
+resource "google_project_service" "analytics_gcs" {
   project = google_project.analytics_project.id
   service = "storage-component.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "analytics_bigquery" {
+  project = google_project.analytics_project.id
+  service = "bigquery.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
+resource "google_project_service" "analytics_logging" {
+  project = google_project.analytics_project.id
+  service = "logging.googleapis.com"
   timeouts {
     create = "30m"
     update = "40m"
