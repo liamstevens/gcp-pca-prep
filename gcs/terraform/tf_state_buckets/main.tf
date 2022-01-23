@@ -9,7 +9,7 @@ resource "google_storage_bucket" "tf_state_buckets" {
   versioning {
     enabled = true
   }
-  lifecycle_rule {
+  lifecycle {
     ignore_changes = all
   }
 }
