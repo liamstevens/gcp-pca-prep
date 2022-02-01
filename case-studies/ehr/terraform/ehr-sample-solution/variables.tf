@@ -25,35 +25,6 @@ variable "gke_sa_id" {
   type        = string
 }
 
-variable "shared_vpc_project_id" {
-  description = "The ID of the project where the shared VPC is deployed."
-  type        = string
-}
-
-variable "shared_vpc_network_id" {
-  description = "The ID of the network within shared VPC that will be used."
-  type        = string
-}
-
-variable "shared_vpc_subnetwork_id" {
-  description = "The ID of the subnetwork within shared VPC that will be used for Green deployment."
-  type        = string
-}
-
-
-variable "shared_vpc_subnetwork_services_secondary_range_name" {
-  description = "The secondary IP range name of subnet for services for Green deployment."
-  type        = string
-}
-
-
-
-variable "shared_vpc_subnetwork_cluster_secondary_range_name" {
-  description = "The secondary IP range name of subnet for cluster for Green deployment."
-  type        = string
-}
-
-
 variable "node_type" {
   description = "The type of node to use in the shared GKE cluster. Includes family as well as type."
   type        = string

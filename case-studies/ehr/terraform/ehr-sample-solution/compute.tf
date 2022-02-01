@@ -59,8 +59,8 @@ resource "google_container_cluster" "shared_vpc_cluster" {
   # }
 
   ip_allocation_policy {
-    cluster_secondary_range_name  = var.shared_vpc_subnetwork_cluster_secondary_range_name
-    services_secondary_range_name = var.shared_vpc_subnetwork_services_secondary_range_name
+    cluster_secondary_range_name  = google_compute_network.shared_subnetwork.secondary_ip_range.0.range_name
+    services_secondary_range_name = google_compute_network.shared_subnetwork.secondary_ip_range.1.range_name
   }
 
   vertical_pod_autoscaling {
