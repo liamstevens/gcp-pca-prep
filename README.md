@@ -1,5 +1,10 @@
-# gcp-pca-prep
+# gcp-pca-prep - Preparation for the GCP Professional Cloud Architect exam.
 Repository of exercises used during my preparation for the Google Professional Cloud Architect certification.
+
+## Summary
+Prior to starting any work on GCP I was primarily an AWS guy. I barely touched Azure, and as of the time of writing still don't have a huge amount of interest in doing so. After starting at Contino I was strongly encouraged to get familiar with GCP in order to build out capability to deliver GCP projects. This repository is a collection of Terraform configurations and notes that I am using in my study in the leadup to the PCA exam (I am also planning to take the Associate Cloud Engineer exam at around the same time).
+
+These have been created in conjunction with Qwiklabs content and exercises and shouldn't replace them by any means, but perhaps act as a supplement if you are interested in getting familiar with writing GCP Terraform at the same time.
 
 
 ## Usage
