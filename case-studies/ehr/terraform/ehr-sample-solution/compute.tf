@@ -49,14 +49,9 @@ resource "google_container_cluster" "shared_vpc_cluster" {
     }
   }
 
-  /******************************************
-  The security account is not ready yet
-  as of 11/10/2021
- *****************************************/
-
-  # authenticator_groups_config {
-  #   security_group          = var.gke_security_groups_email
-  # }
+   authenticator_groups_config {
+     security_group          = var.gke_security_groups_email
+   }
 
   ip_allocation_policy {
     cluster_secondary_range_name  = google_compute_network.shared_subnetwork.secondary_ip_range.0.range_name
@@ -83,10 +78,6 @@ resource "google_container_node_pool" "default_node_pool" {
   }
   max_pods_per_node = var.maximum_pods_per_node
   node_config {
-    /* Disabled temporarily as sandboxing is not currently advised
-    sandbox_config {
-      sandbox_type = var.sandbox_config == true ? "gvisor" : null
-    }*/
     machine_type    = "${var.node_type}-${var.node_size}"
     image_type      = var.node_image
     service_account = "${var.gke_sa_id}@${google_project.compute_project}.iam.gserviceaccount.com"
@@ -112,7 +103,17 @@ resource "google_container_node_pool" "default_node_pool" {
     create = "40m"
     update = "30m"
   }
-  #depends_on = [
-  #  google_project_iam_member.default
-  #]
+  depends_on = [
+    google_project_iam_member.node
+  ]
+}
+
+resource "google_service_account" "node" {
+  account_id   = var.gke_sa_id
+  display_name = "GKE Service Account"
+}
+
+
+resource "google_project_iam_member" "node" {
+  
 }
