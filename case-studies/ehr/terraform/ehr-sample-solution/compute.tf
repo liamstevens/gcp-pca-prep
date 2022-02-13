@@ -80,7 +80,7 @@ resource "google_container_node_pool" "default_node_pool" {
   node_config {
     machine_type    = "${var.node_type}-${var.node_size}"
     image_type      = var.node_image
-    service_account = "${var.gke_sa_id}@${google_project.compute_project}.iam.gserviceaccount.com"
+    service_account = google_service_account.node
     oauth_scopes = [
       "https://www.googleapis.com/auth/compute",
       "https://www.googleapis.com/auth/devstorage.read_only",
@@ -115,5 +115,8 @@ resource "google_service_account" "node" {
 
 
 resource "google_project_iam_member" "node" {
-  
+  for_each = concat(local.base_gke,var.additional_roles)
+  project = google_project.compute_project
+  member = google_service_account.node
+  role = each.value
 }

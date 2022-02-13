@@ -117,3 +117,8 @@ variable "release_channel" {
   description = "Release channel to use for GKE version upgrades. Use REGULAR for non production and STABLE for production clusters."
   default     = "STABLE"
 }
+
+variable "additional_roles" {
+  type = list(string)
+  description = "List of additional roles for GKE node SA."
+}
