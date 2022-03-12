@@ -27,7 +27,7 @@
     - Cloud Natural Language API tied to race chat rooms/transcribed audio
     - Engagement models tied to the above
 - Cloud Run/Cloud Function for en/trans/coding of videos
-- Cloud Storage Buckets for object storage
+- Cloud Storage Buckets for object storage (videos and other)
 
 ## Suggested Architecture
 ![Suggested System Architecture](https://lucid.app/publicSegments/view/d10b3ff8-e9c1-46f5-87fa-16f7ca03caab/image.png)
