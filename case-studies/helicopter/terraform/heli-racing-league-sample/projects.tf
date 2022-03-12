@@ -12,3 +12,10 @@ resource "google_project" "presentation" {
     org_id = var.organisation_id
     auto_create_network = false
 }
+
+resource "google_project" "analytics" {
+    name = "Helicopter Racing League Analytics Project"
+    project_id = "heli-racing-analytics-gcp-pca-prep"
+    org_id = var.organisation_id
+    auto_create_network = false
+}
