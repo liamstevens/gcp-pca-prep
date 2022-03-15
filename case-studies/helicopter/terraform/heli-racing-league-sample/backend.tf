@@ -6,6 +6,6 @@ terraform {
 }
 
 provider "google" {
-  alias = "presentation"
+  alias   = "presentation"
   project = google_project.presentation.id
 }
