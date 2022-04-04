@@ -21,6 +21,17 @@ resource "google_project_service" "presentation_dns" {
   disable_dependent_services = true
 }
 
+resource "google_project_service" "presentation_dns" {
+  project = google_project.presentation.id
+  service = "servicenetworking.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
+
 
 #Analytics Project
 resource "google_project_service" "analytics_gcs" {
@@ -89,3 +100,13 @@ resource "google_project_service" "analytics_language" {
   disable_dependent_services = true
 }
 
+resource "google_project_service" "analytics_speech" {
+  project = google_project.analytics.id
+  service = "speech.googleapis.com"
+  timeouts {
+    create = "30m"
+    update = "40m"
+  }
+
+  disable_dependent_services = true
+}
