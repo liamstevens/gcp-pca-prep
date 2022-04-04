@@ -1,10 +1,10 @@
 resource "google_storage_bucket_object" "archive" {
-  name   = "django.zip"
+  name   = "example.zip"
   bucket = google_storage_bucket.bucket.name
-  source = zip("./src/functions/django/hello.py")
+  source = zip("./src/example_function.py")
 }
 
-resource "google_cloudfunctions_function" "function" {
+resource "google_cloudfunctions_function" "test" {
   name        = "function-test"
   description = "My function"
   runtime     = "python37"
