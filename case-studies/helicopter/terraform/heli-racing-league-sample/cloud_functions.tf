@@ -1,9 +1,9 @@
 resource "google_storage_bucket_object" "archive" {
   name   = "example.zip"
-  bucket = google_storage_bucket.bucket.name
+  bucket = google_storage_bucket.function_bucket.name
   source = zip("./src/example_function.py")
 }
-
+# This sample just contains a dummy function to show how these resources would connect.
 resource "google_cloudfunctions_function" "test" {
   name        = "function-test"
   description = "My function"
