@@ -1,7 +1,7 @@
 resource "google_storage_bucket" "tf_state_buckets" {
   for_each = toset(var.tf_buckets)
   
-  name = each.key
+  name = "${each.key}-${var.suffix}"
   location      = "AUSTRALIA-SOUTHEAST1"
   
 

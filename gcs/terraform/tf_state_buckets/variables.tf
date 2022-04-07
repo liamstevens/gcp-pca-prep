@@ -17,3 +17,8 @@ variable "sa_creds" {
   description = "Location of literal contents of SA credentials file for use."
   type = string
 }
+
+variable "suffix" {
+  description = "Suffix to append to state buckets for global uniqueness."
+  type = string
+}
