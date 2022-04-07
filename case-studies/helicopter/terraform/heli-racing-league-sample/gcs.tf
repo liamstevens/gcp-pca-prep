@@ -1,4 +1,4 @@
-resource "google_storage_bucket" "bucket" {
+resource "google_storage_bucket" "function_bucket" {
   name     = "function_bucket-gcp-pca-prep"
   location = var.region
 }

@@ -1,0 +1,2 @@
+# Case Studies
+The contained folders cover the four current (as of time of writing) case studies for the GCP PCA exam. The idea behind each of these is to create a solution to address their use cases/issues. The sample solutions contained in these folders are not necessarily correct, and are certainly not official. They are simply the implementation that I thought may work best given my understanding of GCP services at the time.
