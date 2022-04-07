@@ -14,9 +14,9 @@
 
 ## Initial suggested Google stacks
 - GKE
-    - Multi-region cluster
+    - Multi-region clusters
     - Probably multiple node pools in order to flex for demand
-    - Enables pooling of resources by provisioning tenant applications within namespaces
+    - Enables pooling of resources by provisioning tenant applications within namespaces or dedicated node pools
     - Enables rendering by fixing affinities of rendering tasks to GPU enabled pools
     - Will require some clever scheduling configuration in order to ensure there are services deployed appropriately, potentially may require running them as daemonsets
 - Cloud Spanner
